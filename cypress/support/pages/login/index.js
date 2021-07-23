@@ -14,7 +14,20 @@ class Login{
     submeterFormulario(){
         cy.get(el.buttonSubmit).click()
     }
-             
+    validarLogin(){
+
+        cy.wait(`@${Routes.as.POSTLogin}`).then((postLoginRes) => {
+            expect(postLoginRes.response.statusCode).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.GETTags}`).then((getTagsRes) => {
+            expect(getTagsRes.response.statusCode).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.GETArticles}`).then((getArticlesRes) => {
+            expect(getArticlesRes.response.statusCode).to.eq(200)
+        })
+
+        cy.get(el.linkEditor).should('be.visible')
+     }        
 
 }
 
