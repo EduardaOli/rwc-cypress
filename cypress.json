@@ -5,6 +5,10 @@
     "user": {
         "email": "mariaeduardaoli@gmail.com",
         "password": "oliduda12"
+    },
+    "reporter": "junit",
+    "reporterOptions": {
+        "mochaFile": "cypress/reports/junit-[hash].xml"
     }
     
 }
